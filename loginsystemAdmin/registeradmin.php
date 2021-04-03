@@ -75,8 +75,7 @@ if (isset($_POST['submit'])) {
 			<div class="input-group">
 				<input type="text" placeholder="Address" name="address" value="<?php echo $address; ?>" required>
 			</div>
-			<div class="input-group">
-				
+			<div class="input-group">	
 				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
             </div>
             <div class="input-group">

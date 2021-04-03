@@ -7,7 +7,7 @@ session_start();
 
 error_reporting(0);
 
-if (isset($_SESSION['uid'])) {
+if (isset($_SESSION['aid'])) {
     header("Location: ../home/index.php");
 }
 
@@ -20,9 +20,9 @@ if (isset($_POST['submit'])) {
 	// print_r($result);
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
-		$_SESSION['uid'] = $row["userid"];
+		$_SESSION['aid'] = $row["adminid"];
 		$_SESSION['fullname'] = $row['fullname'];
-		header("Location: ../home/index.php");
+		header("Location: ../index.php");
 	} else {
 		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
 	}
@@ -43,9 +43,10 @@ if (isset($_POST['submit'])) {
 	<title>Login</title>
 </head>
 <body>
+	
 	<div class="container">
 		<form action="" method="POST" class="login-email">
-			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
+			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Admin Login</p>
 			<div class="input-group">
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
 			</div>
@@ -60,3 +61,9 @@ if (isset($_POST['submit'])) {
 	</div>
 </body>
 </html>
+<?php
+		if($_GET['log']=1){
+			echo "<script>alert('Woops! You need to sign in first')</script>";
+
+		}
+	?>
