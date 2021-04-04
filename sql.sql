@@ -38,3 +38,22 @@ CREATE TABLE brand(
     brandid VARCHAR(20) PRIMARY KEY NOT NULL,
     brandname VARCHAR(20) NOT NULL
 );
+CREATE TABLE product (
+	productid INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    pname VARCHAR(50) NOT NULL,
+    stock INT(4) NOT NULL,
+    price INT(10) NOT NULL,
+    categoryid VARCHAR(20) NOT NULL,
+    adminid INT NOT NULL,
+    brandid VARCHAR(20) NOT NULL,
+    description VARCHAR(200),
+    FOREIGN KEY(adminid) REFERENCES admin(adminid) ON DELETE CASCADE,
+    FOREIGN KEY(categoryid) REFERENCES category(categoryid) ON DELETE CASCADE,
+    FOREIGN KEY(brandid) REFERENCES brand(brandid) ON DELETE CASCADE
+    
+);
+ALTER TABLE product ADD COLUMN image VARCHAR(100);
+INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('1', 'pepe jeans');
+INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('2', 'forever 21');
+INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('3', 'allen solly');
+INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('4', 'westside');
