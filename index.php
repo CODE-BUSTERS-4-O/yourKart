@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Welcome </p>
+    <a href="admin/loginsystemAdmin/registeradmin.php">admin registration</a>
+    <!-- <a href="admin/loginsystemAdmin/index.php">admin login</a> -->
+    <a href="user/loginsystemUsers/register.php">user login</a>
 </body>
 </html>

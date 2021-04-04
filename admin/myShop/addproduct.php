@@ -1,6 +1,6 @@
 <?php 
 
-include '../config.php';
+include '../../config.php';
 
 error_reporting(0);
 
@@ -18,7 +18,7 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <form action="addproduct.inc.php" method="POST">
+    <form action="addproduct.inc.php" method="POST" enctype="multipart/form-data">
         <p class="login-text" style="font-size: 2rem; font-weight: 800;">Add a Product</p>
         <div class="input-group">
             <input type="text" placeholder="Product name" name="pname" required>

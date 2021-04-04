@@ -1,14 +1,14 @@
 <?php 
 
-require_once '../config.php';
+require_once '../../config.php';
 
-// error_reporting(0);
+error_reporting(0);
 
 session_start();
 
-// if (!isset($_SESSION['aid'])) {
-// 	header("Location: index.php?log=1");
-// }
+if (!isset($_SESSION['aid'])) {
+	header("Location: index.php?log=1");
+}
 
 if(isset($_POST['submit'])){
 
@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
     print_r($fileExt);
     $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array('jpeg', 'jpg', 'png', 'pdf');
+    $allowed = array('jpeg', 'jpg', 'png');
 
     if( in_array($fileActualExt, $allowed)) {
         if($fileError===0){
@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
                 mysqli_stmt_bind_param($stmt, "siississ", $pname, $stock, $price, $category, $brand, $_SESSION['aid'], $desc, $fileNameNew);
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
-                header("Location: managemyshop.php?error=none");
+                header("Location: manageShop.php?error=none");
             }else{
                 echo "<script>alert('File Size too big!')</script>";
             }

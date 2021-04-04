@@ -1,14 +1,14 @@
 <?php
 
 
-include 'config.php';
+include '../../config.php';
 
 session_start();
 
 error_reporting(0);
 
 if (isset($_SESSION['aid'])) {
-    header("Location: ../home/index.php");
+    header("Location: ../../index.php?log=0");
 }
 
 if (isset($_POST['submit'])) {
