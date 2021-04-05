@@ -84,7 +84,7 @@
       <br>
       
       <a href='<?php echo "../cart/cart.inc.php?pid=$pid";?>' class="add-btn">Add To Cart</a>
-      <a href="" class="add-btn">Add To wishlist</a>
+      <a href='<?php echo "../wishlist/wishlist.inc.php?pid=$pid";?>' class="add-btn">Add To wishlist</a>
       <a href="" class="add-btn">Buy Now</a>
 
       
