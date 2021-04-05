@@ -57,3 +57,33 @@ INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('1', 'pepe jeans');
 INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('2', 'forever 21');
 INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('3', 'allen solly');
 INSERT INTO `brand`(`brandid`, `brandname`) VALUES ('4', 'westside');
+
+
+CREATE TABLE cart(
+    userid INT,
+    quantity INT,
+    totalcost INT,
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
+);
+
+create table cartproductrelation(
+    userid int,
+    productid INT,
+    
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE,
+    FOREIGN KEY(productid) REFERENCES product(productid) ON DELETE CASCADE
+);
+
+CREATE TABLE wishlist(
+    userid INT,
+    quantity INT,
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
+);
+
+create table wishproductrelation(
+    userid int,
+    productid INT,
+    
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE,
+    FOREIGN KEY(productid) REFERENCES product(productid) ON DELETE CASCADE
+);
