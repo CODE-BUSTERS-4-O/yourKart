@@ -26,17 +26,11 @@
         
         $rs = mysqli_query($conn, $sql);
         $result = mysqli_query($conn, $sql2);
-        if($rs){
-            echo '<script>alert("OHHHHHHHHH yeah rs")</script>';
+        if($rs and $result){
+            header("Location : cart.php");
         }else{
-            echo '<script>alert("OHHHHHHHHH shittt rs")</script>';
+            echo '<script>alert("Oops! SOmething went wrong")</script>';
         }
-        if($result){
-            echo '<script>alert("OHHHHHHHHH yeah  result")</script>';
-        }else{
-            echo '<script>alert("OHHHHHHHHH shittt result")</script>';
-        }
-
     }else{
         header("Location: ../productPage/viewProduct.php?error=stmtfail&pid=$pid");
     }

@@ -1,3 +1,19 @@
+<?php
+    include '../../config.php';
+
+    session_start();
+
+    error_reporting(0);
+
+    if(!isset($_SESSION['uid'])){
+        header("Location : ../loginsystemUsers/index.php");
+    }
+    
+    $user = $_SESSION['uid'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,16 +41,27 @@
       <label class="product-removal">Remove</label>
       <label class="product-line-price">Total</label>
     </div>
+
+    <?php 
+        $sql = "SELECT * FROM products WHERE productid in(SELECT productid FROM cartproductrelation WHERE userid=$user)";
+        $result = mysqli_query($conn, $sql);
+
+        $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    ?>
+
+    <?php  foreach($products as $product): 
+        $image=$product['image'];    
+    ?>
   
     <div class="product">
       <div class="product-image">
-        <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
+        <img src= '<?php echo "../../admin/myShop/images/$image" ?>'>
       </div>
       <div class="product-details">
-        <div class="product-title">Dingo Dog Bones</div>
-        <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+        <div class="product-title"><?php echo $product['pname']; ?></div>
+        <p class="product-description"><?php echo $product['description'];?></p>
       </div>
-      <div class="product-price">12.99</div>
+      <div class="product-price"><?php echo $product['price']; ?></div>
       <div class="product-quantity">
         <input type="number" value="2" min="1">
       </div>
@@ -43,49 +70,12 @@
           Remove
         </button>
       </div>
-      <div class="product-line-price">25.98</div>
+      <div class="product-line-price"><?php echo $product['price']; ?></div>
     </div>
   
-    <div class="product">
-      <div class="product-image">
-        <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
-      </div>
-      <div class="product-details">
-        <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-        <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
-      </div>
-      <div class="product-price">45.99</div>
-      <div class="product-quantity">
-        <input type="number" value="1" min="1">
-      </div>
-      <div class="product-removal">
-        <button class="remove-product">
-          Remove
-        </button>
-      </div>
-      <div class="product-line-price">45.99</div>
-    </div>
-  
-    <div class="totals">
-      <div class="totals-item">
-        <label>Subtotal</label>
-        <div class="totals-value" id="cart-subtotal">71.97</div>
-      </div>
-      <div class="totals-item">
-        <label>Tax (5%)</label>
-        <div class="totals-value" id="cart-tax">3.60</div>
-      </div>
-      <div class="totals-item">
-        <label>Shipping</label>
-        <div class="totals-value" id="cart-shipping">15.00</div>
-      </div>
-      <div class="totals-item totals-item-total">
-        <label>Grand Total</label>
-        <div class="totals-value" id="cart-total">90.57</div>
-      </div>
-    </div>
+    <?php endforeach?>
         
-        <button class="checkout">Checkout</button>
+    <button class="checkout">Checkout</button>
   
   </div>
 
