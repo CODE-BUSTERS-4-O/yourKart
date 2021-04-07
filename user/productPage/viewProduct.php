@@ -54,10 +54,10 @@
       
     <a href="" class="cart-icon"><i class="fa fa-shopping-cart"></i></a>
   </div>
-  
+  <?php $image=$product['image'];?>
   <div class="product group">
     <div class="col-1-2 product-image">
-      <div class="bg" style="background-image: url(../../admin/myShop/images/606ad4df9584a7.85066853.jpg);"></div>
+      <div class="bg" style='background-image: url(<?php echo "../../admin/myShop/images/$image";?>);'></div>
     </div>
     <div class="col-1-2 product-info">
       <h1><?php echo $product['pname']?></h1>

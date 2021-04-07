@@ -14,14 +14,52 @@ if (isset($_SESSION['uid'])) {
 if (isset($_POST['submit'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
-	print($password);
 	$sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 	$result = mysqli_query($conn, $sql);
-	print_r($result);
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['uid'] = $row["userid"];
 		$_SESSION['fullname'] = $row['fullname'];
+		$uid = $row['userid'];
+		$sqlcheck = "SELECT * FROM cart WHERE userid = '$uid'";
+		$check = mysqli_query($conn,$sqlcheck);
+
+		if($check->num_rows <= 0){
+			// $Sql1 = "SELECT * FROM users WHERE email=$email";
+			// $result = mysqli_query($conn, $sql1);
+			// $user = mysqli_fetch_assoc($result);
+			// $uid = $user['userid'];
+			$sql2 = "INSERT INTO cart(userid, quantity, totalcost) VALUES($uid, 0,0)";
+			$result = mysqli_query($conn, $sql2);
+			if($result){
+				echo "<script>alert('done')</script>";
+			}else{
+				echo "<script>alert('not ')</script>";
+			}
+
+			
+		}
+
+		$sqlcheck = "SELECT * FROM wishlist WHERE userid = '$uid'";
+		$check = mysqli_query($conn,$sqlcheck);
+
+		if($check->num_rows <= 0){
+			// $Sql1 = "SELECT * FROM users WHERE email=$email";
+			// $result = mysqli_query($conn, $sql1);
+			// $user = mysqli_fetch_assoc($result);
+			// $uid = $user['userid'];
+			$sql2 = "INSERT INTO wishlist(userid, quantity) VALUES($uid, 0)";
+			$result = mysqli_query($conn, $sql2);
+			if($result){
+				echo "<script>alert('done')</script>";
+			}else{
+				echo "<script>alert('not ')</script>";
+			}
+
+			
+		}
+		
+		
 		header("Location: ../home/index.php");
 	} else {
 		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";

@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
 					VALUES ('$fullname', '$email','$contact', '$password')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
+				
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
 				$username = "";
 				$email = "";
