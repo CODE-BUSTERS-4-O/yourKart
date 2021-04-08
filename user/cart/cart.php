@@ -43,19 +43,23 @@
     </div>
 
     <?php 
-        $sql = "SELECT * FROM products WHERE productid in(SELECT productid FROM cartproductrelation WHERE userid=$user)";
+        $sql = "SELECT * FROM product WHERE productid in(SELECT productid FROM cartproductrelation WHERE userid=$user)";
         $result = mysqli_query($conn, $sql);
-
         $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
 
     <?php  foreach($products as $product): 
-        $image=$product['image'];    
+            $image=$product['image'];   
+            $prodid = $product['productid'];
+            $cartproduct = "SELECT * FROM cartproductrelation WHERE userid = $user AND productid = $prodid;";
+            $resultprod = mysqli_query($conn,$cartproduct);
+            $prodcuctincart = mysqli_fetch_assoc($resultprod);
+            $totalprice = $prodcuctincart['quantity']*$product['price']; 
     ?>
   
     <div class="product">
       <div class="product-image">
-        <img src= '<?php echo "../../admin/myShop/images/$image" ?>'>
+        <img src= '<?php echo "../../admin/myShop/images/$image"; ?>'>
       </div>
       <div class="product-details">
         <div class="product-title"><?php echo $product['pname']; ?></div>
@@ -63,17 +67,21 @@
       </div>
       <div class="product-price"><?php echo $product['price']; ?></div>
       <div class="product-quantity">
-        <input type="number" value="2" min="1">
+      <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+        <input type="number" name="quantity" value='<?php echo $prodcuctincart['quantity'];?>' min="1">
+        <button class="remove-product" name = "update" value="submit">Update</button>
+      </form>
       </div>
       <div class="product-removal">
-        <button class="remove-product">
-          Remove
-        </button>
+        <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+          <button class="remove-product" name="remove" value="submit">Remove</button>
+        </form>
+        
       </div>
-      <div class="product-line-price"><?php echo $product['price']; ?></div>
+      <div class="product-line-price"><?php echo $totalprice?></div>
     </div>
   
-    <?php endforeach?>
+    <?php endforeach;?>
         
     <button class="checkout">Checkout</button>
   
