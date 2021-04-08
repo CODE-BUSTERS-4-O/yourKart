@@ -87,3 +87,5 @@ create table wishproductrelation(
     FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE,
     FOREIGN KEY(productid) REFERENCES product(productid) ON DELETE CASCADE
 );
+ALTER TABLE wishproductrelation ADD quantity INT;
+ALTER TABLE cartproductrelation ADD quantity INT;

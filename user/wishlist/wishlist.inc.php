@@ -11,26 +11,40 @@
         header("Location : ../loginsystemUsers/index.php");
     }
     
+    
     $pid = $_GET['pid'];
     $user = $_SESSION['uid'];
 
+    $checkIfPresent = "SELECT * FROM wishproductrelation WHERE userid=$user AND productid = $pid;";
+    $check = mysqli_query($conn,$checkIfPresent);
 
-    $sql = "INSERT INTO wishproductrelation (userid,productid) values ($user,$pid)";
+    if($check->num_rows > 0){
+        
+        $cartentry = mysqli_fetch_assoc($check);
+        $quantity = $cartentry['quantity'];
+        $quantity++;
+        $sqlupdate = "UPDATE wishproductrelation SET quantity=$quantity WHERE userid=$user AND productid = $pid;";
+        $updated = mysqli_query($conn,$sqlupdate);
+        
+    }else{
+        $sqlinsert = "INSERT INTO wishproductrelation (userid,productid, quantity) values ($user,$pid, 1)";
+        $inserted = mysqli_query($conn,$sqlinsert);
+    }
 
-    if(mysqli_query($conn,$sql)){
-        $uid = $_SESSION['uid'];
-        $pid = $_GET['pid'];
-        $sql = "UPDATE wishlist SET quantity=(SELECT count(userid) FROM wishproductrelation WHERE userid=$uid);";
-             
-        $rs = mysqli_query($conn, $sql);
-        if($rs){
-            echo '<script>alert("OHHHHHHHHH yeah")</script>';
+    if($updated or $inserted){
+        
+        $quantityupdate = "UPDATE wishlist SET quantity=(SELECT sum(quantity) FROM wishproductrelation WHERE userid = $user);";
+        $qupdate = mysqli_query($conn,$quantityupdate);
+
+        if($qupdate){
+            header("Location: wishlist.php");
         }else{
-            echo '<script>alert("OHHHHHHHHH shittt rs")</script>';
+            echo '<script>alert("Oops! SOmething went wrong")</script>';
         }
-
     }else{
         header("Location: ../productPage/viewProduct.php?error=stmtfail&pid=$pid");
     }
-   
+    
+    
+    
 ?>

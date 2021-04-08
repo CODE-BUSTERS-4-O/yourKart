@@ -23,13 +23,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="stylecart/cart.css">
-    <script src="stylecart/cart.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="stylewish/wish.css">
+    <!-- <script src="stylecart/cart.js" charset="utf-8"></script> -->
     <title>Document</title>
 </head>
 <body>
     
-  <h1>Shopping Cart</h1>
+  <h1>MY WISHLIST</h1>
 
   <div class="shopping-cart">
   
@@ -43,7 +43,7 @@
     </div>
 
     <?php 
-        $sql = "SELECT * FROM product WHERE productid in(SELECT productid FROM cartproductrelation WHERE userid=$user)";
+        $sql = "SELECT * FROM product WHERE productid in(SELECT productid FROM wishproductrelation WHERE userid=$user)";
         $result = mysqli_query($conn, $sql);
         $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
     ?>
@@ -51,10 +51,10 @@
     <?php  foreach($products as $product): 
             $image=$product['image'];   
             $prodid = $product['productid'];
-            $cartproduct = "SELECT * FROM cartproductrelation WHERE userid = $user AND productid = $prodid;";
+            $cartproduct = "SELECT * FROM wishproductrelation WHERE userid = $user AND productid = $prodid;";
             $resultprod = mysqli_query($conn,$cartproduct);
-            $prodcuctincart = mysqli_fetch_assoc($resultprod);
-            $totalprice = $prodcuctincart['quantity']*$product['price']; 
+            $prodcuctinwish = mysqli_fetch_assoc($resultprod);
+            $totalprice = $prodcuctinwish['quantity']*$product['price']; 
     ?>
   
     <div class="product">
@@ -68,16 +68,15 @@
       <div class="product-price"><?php echo $product['price']; ?></div>
       <div class="product-quantity">
       <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
-        <input type="number" name="quantity" value='<?php echo $prodcuctincart['quantity'];?>' min="1">
-        <button class="remove-product" name = "update" value="submit">Update</button>
+        <p><?php echo $prodcuctinwish['quantity'];?></p>
       </form>
       </div>
       <div class="product-removal">
-        <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+        <form action='<?php echo "updatewishlist.php?pid=$prodid"?>' method="POST">
           <button class="remove-product" name="remove" value="submit">Remove</button>
         </form>
-        <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
-          <button class="remove-product" name="addtowish" value="submit">Move to wishlist</button>
+        <form action='<?php echo "updatewishlist.php?pid=$prodid"?>' method="POST">
+          <button class="remove-product" name="move" value="submit">Move to Cart</button>
         </form>
         
       </div>
@@ -85,43 +84,7 @@
     </div>
   
     <?php endforeach;?>
-
-    <?php 
-        $cart = "SELECT * FROM cart WHERE userid = $user;";
-        $getcart = mysqli_query($conn,$cart);
-        $entry = mysqli_fetch_assoc($getcart);
-
-        $tax = $entry['totalcost']*0.05;
-        $shipping = 15;
     
-    ?>
-    <div class="totals">
-      <div class="totals-item">
-          <label>Total items</label>
-          <div class="totals-value" id="cart-subtotal"><?php echo $entry['quantity']?></div>
-        </div>
-        <div class="totals-item">
-          <label>Subtotal</label>
-          <div class="totals-value" id="cart-subtotal"><?php echo $entry['totalcost']?></div>
-        </div>
-        <div class="totals-item">
-          <label>Tax (5%)</label>
-          <div class="totals-value" id="cart-tax"><?php echo $tax;?></div>
-        </div>
-        <div class="totals-item">
-          <label>Shipping</label>
-          <div class="totals-value" id="cart-shipping"><?php echo $shipping;?></div>
-        </div>
-        <div class="totals-item">
-          <label>Discount</label>
-          <div class="totals-value" id="cart-shipping"><?php echo $shipping+$tax;?></div>
-        </div>
-        <div class="totals-item totals-item-total">
-          <label>Grand Total</label>
-          <div class="totals-value" id="cart-total"><?php echo $entry['totalcost']?></div>
-        </div>
-    </div>
-    <button class="checkout">Checkout</button>
   
   </div>
 
