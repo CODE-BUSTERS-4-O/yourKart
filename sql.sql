@@ -89,3 +89,13 @@ create table wishproductrelation(
 );
 ALTER TABLE wishproductrelation ADD quantity INT;
 ALTER TABLE cartproductrelation ADD quantity INT;
+
+CREATE TABLE shippinginfo(
+    addressid int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	userid int,
+    name VARCHAR(25),
+    contact INT(11),
+    pincode INT(6),
+   	address VARCHAR(100),
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
+);

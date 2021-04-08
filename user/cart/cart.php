@@ -121,7 +121,7 @@
           <div class="totals-value" id="cart-total"><?php echo $entry['totalcost']?></div>
         </div>
     </div>
-    <button class="checkout">Checkout</button>
+    <button class="checkout"><a href="">Proceed to Checkout</a></button>
   
   </div>
 
