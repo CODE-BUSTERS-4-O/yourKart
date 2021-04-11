@@ -39,7 +39,7 @@
             <div class="card__content">
               <!-- <div class="card__title">Flex</div> -->
               <p class="card__text">
-                <?php echo $ad['name'];?>
+                <?php echo $ad['fname'];?>
                 <?php echo $ad['contact'];?>
                 <?php echo $ad['address'];?>
                 <?php echo $ad['pincode'];?>

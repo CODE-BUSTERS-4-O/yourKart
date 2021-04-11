@@ -11,17 +11,17 @@
     }
 
 
-    if(isset($_POST["submit"])){
+    if(isset($_POST['submit'])){
         $user = $_SESSION['uid'];
         $name = $_POST['fullname'];
         $address = $_POST['address'];
         $contact = $_POST['contact'];
         $pincode = $_POST['pincode'];
 
-        $sql = "INSERT INTO shippinginfo (userid, fname, contact, pincode, saddress) VALUES (41, 'lisa', 7485, 859674, 'fvbgfdbver');";
+        $sql = "INSERT INTO shippinginfo (userid, fname, contact, pincode, address) VALUES ('$user','$name', '$contact', '$pincode', '$address');";
 
         if(mysqli_query($conn,$sql)){
-            echo "ewdc";
+            header("Location: shippingInfo.php");
         }else{
             echo "ohhh nooo";
         }
