@@ -44,6 +44,7 @@ a {
 #image {
 	height: 100px;
   width: 180px;
+  margin-right: 20px;
 } 
 .navbar > .toggle {
 	border: 0;
@@ -142,6 +143,8 @@ a {
 	border-bottom-color: #dbd8d8;
 }
 
-.navbar icon {
-  
+.icon {
+  color: #dbd8d8;
+  font-size: xx-large;
+  float:right;
 }

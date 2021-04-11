@@ -23,14 +23,15 @@
           <!-- List of links -->
           <nav role="navigation" id="navigation" class="list">
             <a href="#" class="item -link">Home</a>
-            <a href="#" class="item -link">Wishlist</a>
-            <a href="#" class="item -link">Cart</a>
-            <a href="#" class="item -link">Profile</a>
+            <a href="#" class="item -link"><span class="icon"><i class="fa fa-heart-o"></i></span>Wishlist</a>
+            <a href="#" class="item -link"><span class="icon"><i class="fa fa-shopping-cart"></i></span>Cart</a>
+            
+            <a href="#" class="item -link"><span class="icon"><i class="fa fa-user-o"></i></span>Profile</a>
             <a href="#" class="item -link">About us</a>
             <!--  -->
           </nav>
           </button>
-          <span class="icon"><i class="fa fa-user-o"></i></span>
+          
         </div>
         
       </div>
