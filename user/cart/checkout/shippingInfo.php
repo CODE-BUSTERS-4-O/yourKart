@@ -44,8 +44,8 @@
                 <?php echo $ad['address'];?>
                 <?php echo $ad['pincode'];?>
               </p>
-              <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Update</a></button>
-              <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Remove</a></button>
+              <!-- <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Update</a></button>
+              <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Remove</a></button> -->
             </div>
           </div>
         </li>

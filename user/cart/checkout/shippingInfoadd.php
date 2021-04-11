@@ -25,25 +25,24 @@ include '../../../config.php';
 </head>
 <body>
 	<div class="container">
-		<form action="checkout.inc.php" method="POST" class="login-email">
-			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
+		<form action="shippinginfo.inc.php" method="POST" class="login-email">
+			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Shipping Information</p>
 			<div class="input-group">
 				<input type="text" placeholder="Full Name" name="fullname"required>
 			</div>
 			<div class="input-group">
-				<input type="text" placeholder="Address" name="adress" required>
+				<input type="text" placeholder="Address" name="address" required>
 			</div>
 			<div class="input-group">
 				<input type="number" placeholder="Contact" name="contact" required>
 			</div>
 			<div class="input-group">
-				<input type="number" placeholder="Pin Code" name="pincode" min="100000" max="99999" required>
+				<input type="number" placeholder="Pin Code" name="pincode" min="100000" max="999999" required>
 			</div>
 			
 			<div class="input-group">
-				<button name="submit" class="btn">Login</button>
+				<button name="submit" class="btn">ADD</button>
 			</div>
-			<p class="login-register-text">Don't have an account? <a href="register.php">Register Here</a>.</p>
 		</form>
 	</div>
 </body>
