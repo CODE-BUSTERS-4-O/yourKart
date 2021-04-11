@@ -18,12 +18,12 @@
         $contact = $_POST['contact'];
         $pincode = $_POST['pincode'];
 
-        $sql = "INSERT INTO shippinginfo (userid,name,contact,pincode,address) values ($user,$name,$contact,$pincode,$address);";
-        $rs = mysqli_query($conn,$sql);
-        if($rs){
-            header("Location: shippingInfo.php");
+        $sql = "INSERT INTO shippinginfo (userid, fname, contact, pincode, saddress) VALUES (41, 'lisa', 7485, 859674, 'fvbgfdbver');";
+
+        if(mysqli_query($conn,$sql)){
+            echo "ewdc";
         }else{
-            echo "error";
+            echo "ohhh nooo";
         }
     }
 
