@@ -1,5 +1,6 @@
 <?php
     require_once 'config.php';
+    include_once 'header.php';
     session_start();
 ?>
 <!DOCTYPE html>
@@ -17,16 +18,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <a href="admin/loginsystemAdmin/registeradmin.php">admin registration</a>
-    <!-- <a href="admin/loginsystemAdmin/index.php">admin login</a> -->
-    <a href="user/loginsystemUsers/register.php">user login</a>
+    <!-- <a href="admin/loginsystemAdmin/registeradmin.php">admin registration</a>
+    <a href="admin/loginsystemAdmin/index.php">admin login</a>
+    <a href="user/loginsystemUsers/register.php">user login</a> -->
     <div class="container">
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-md-12">
             <h1 class="text-center page-title">Product Page - Animation</h1>
           </div>
         </div>
-        <div class="row">
+        <div class="row"> -->
     <?php
         
         $sql = "SELECT * FROM product";
