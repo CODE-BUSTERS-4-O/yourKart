@@ -56,7 +56,7 @@
         $tcupdated = mysqli_query($conn,$tcupdate);
 
         if($qupdate and $tcupdated){
-            header("Location: cart.php");
+            header("Location: ../../cart.php");
         }else{
             echo '<script>alert("Oops! SOmething went wrong")</script>';
         }

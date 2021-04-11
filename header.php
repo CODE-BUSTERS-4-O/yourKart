@@ -24,9 +24,9 @@
           <a href="index.php" class="brand" ><img id="image" src="src/logo.png"></a>
           <!-- List of links -->
           <nav role="navigation" id="navigation" class="list">
-            <a href="#" class="item -link"><span class="icon"><i class="fa fa-shopping-basket"></i></span>Shop</a>
-            <a href="#" class="item -link"><span class="icon"><i class="fa fa-heart"></i></span>Wishlist</a>
-            <a href="#" class="item -link"><span class="icon"><i class="fa fa-shopping-cart"></i></span>Cart</a>            
+            <a href="home.php" class="item -link"><span class="icon"><i class="fa fa-shopping-basket"></i></span>Shop</a>
+            <a href="wishlist.php" class="item -link"><span class="icon"><i class="fa fa-heart"></i></span>Wishlist</a>
+            <a href="cart.php" class="item -link"><span class="icon"><i class="fa fa-shopping-cart"></i></span>Cart</a>            
             <a href="#" class="item -link">About us</a>
             <a href="#" class="item -link"><span class="icon"><i class="fa fa-user"></i></span>Profile</a>
             <!--  -->

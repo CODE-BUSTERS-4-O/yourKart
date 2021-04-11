@@ -37,7 +37,7 @@
         $qupdate = mysqli_query($conn,$quantityupdate);
 
         if($qupdate){
-            header("Location: wishlist.php");
+            header("Location: ../../wishlist.php");
         }else{
             echo '<script>alert("Oops! SOmething went wrong")</script>';
         }

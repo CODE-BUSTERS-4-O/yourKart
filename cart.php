@@ -1,13 +1,13 @@
 <?php
-    include '../../config.php';
-    include_once '../../header.php';
+    include 'config.php';
+    include_once 'header.php';
 
     session_start();
 
     error_reporting(0);
 
     if(!isset($_SESSION['uid'])){
-        header("Location : ../loginsystemUsers/index.php");
+        header("Location : user/loginsystemUsers/index.php");
     }
     
     $user = $_SESSION['uid'];
@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="stylecart/cart.css">
-    <link rel="stylesheet" type="text/css" href="../../src/header.css">
+    <link rel="stylesheet" type="text/css" href="user/cart/stylecart/cart.css">
+    <link rel="stylesheet" type="text/css" href="src/header.css">
 
     <script src="stylecart/cart.js" charset="utf-8"></script>
     <title>Document</title>
@@ -60,7 +60,7 @@
 
   <div class="product">
     <div class="product-image">
-      <img src= '<?php echo "../../admin/myShop/images/$image"; ?>'>
+      <img src= '<?php echo "admin/myShop/images/$image"; ?>'>
     </div>
     <div class="product-details">
       <div class="product-title"><?php echo $product['pname']; ?></div>
@@ -68,16 +68,16 @@
     </div>
     <div class="product-price"><?php echo $product['price']; ?></div>
     <div class="product-quantity">
-    <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+    <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
       <input type="number" name="quantity" value='<?php echo $prodcuctincart['quantity'];?>' min="1">
       <button class="remove-product" name = "update" value="submit">Update</button>
     </form>
     </div>
     <div class="product-removal">
-      <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+      <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
         <button class="remove-product" name="remove" value="submit">Remove</button>
       </form>
-      <form action='<?php echo "updatecart.php?pid=$prodid"?>' method="POST">
+      <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
         <button class="remove-product" name="addtowish" value="submit">Move to wishlist</button>
       </form>
       

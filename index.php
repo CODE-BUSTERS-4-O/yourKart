@@ -52,7 +52,7 @@
                     <div class="product-label">
                         <div class="product-name">
                             <h1><?php echo $pd['pname'];?></h1>
-                            <p class="price"><?php echo $pd['price'];?></p>
+                            <p class="price">Rs.<?php echo $pd['price'];?></p>
                             <p><?php echo $pd['description'];?></p>
                         </div>
                     </div>

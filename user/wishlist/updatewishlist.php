@@ -40,7 +40,7 @@
         $tcupdated = mysqli_query($conn,$tcupdate);
 
         if($qupdate and $tcupdated){
-            header("Location: cart.php");
+            header("Location: ../../wishlist.php");
         }else{
             echo '<script>alert("Oops! SOmething went wrong")</script>';
         }
@@ -89,7 +89,7 @@
                 $tcupdated = mysqli_query($conn,$tcupdate);
 
                 if($qupdate and $tcupdated){
-                    header("Location: wishlist.php");
+                    header("Location: ../../wishlist.php");
                 }else{
                     echo '<script>alert("Oops! SOmething went wrong1")</script>';
                 }
