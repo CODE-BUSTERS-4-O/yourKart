@@ -92,10 +92,10 @@ ALTER TABLE cartproductrelation ADD quantity INT;
 
 CREATE TABLE shippinginfo(
     addressid int NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	userid int,
-    name VARCHAR(25),
-    contact INT(11),
-    pincode INT(6),
-   	address VARCHAR(100),
+	userid int NOT NULL,
+    fname VARCHAR(25) NOT NULL,
+    contact INT(11) NOT NULL,
+    pincode INT(6) NOT NULL,
+   	saddress VARCHAR(100) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
 );
