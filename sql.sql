@@ -99,3 +99,28 @@ CREATE TABLE shippinginfo(
    	saddress VARCHAR(100) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
 );
+
+CREATE TABLE payment(
+	paymentid INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userid INT(11) NOT NULL,
+    amount VARCHAR(11) NOT NULL,
+    pdate VARCHAR(100) NOT NULL,
+    mode VARCHAR(10) NOT NULL,
+    status VARCHAR(10) NOT NULL,
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
+);
+
+CREATE TABLE orders(
+    orderid INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid INT(11) NOT NULL,
+    productid INT(11) NOT NULL,
+    amount INT(11) NOT NULL,
+    odate varchar(20) NOT NULL,
+    paymentid INT(11) NOT NULL,
+    addressid INT(11) NOT NULL,
+    FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE,
+    FOREIGN KEY(paymentid) REFERENCES payment(paymentid) ON DELETE CASCADE
+);
+
+ALTER TABLE orders
+ADD quantity INT(10);

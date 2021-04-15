@@ -129,7 +129,7 @@
       <?php echo $ad['address'];?><br>
       <?php echo $ad['pincode'];?><br>
   </div>
-        <button class="checkout"><a href='<?php echo "user/cart/stripe_php_payment_gateway/index.php?pid=$tcost"?>'>Pay NOW</a></button>
+        <button class="checkout"><a href='<?php echo "user/cart/stripe_php_payment_gateway/index.php?pid=$tcost&adid=$aid"?>'>Pay NOW</a></button>
 
       </div>
 

@@ -7,13 +7,15 @@ require_once '../../../config.php';
 
 	$userId = $_SESSION["uid"];
 	$totalPay = $_GET['pid'];
+	$aid = $_GET['adid'];
 	$payId = $totalPay;
+	
 	
 	$query = mysqli_query($conn,"SELECT * FROM users WHERE userid = '$userId'");
 	$row = mysqli_fetch_assoc($query);
 	$email = $row["email"];
 ?>
-<form action='<?php echo "submit.php?id=$payId";?>' method="post">
+<form action='<?php echo "submit.php?id=$payId&adid=$aid";?>' method="post">
 	<script
 		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		data-key="<?php echo $publishableKey?>"

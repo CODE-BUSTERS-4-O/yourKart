@@ -2,6 +2,7 @@
 	session_start();
 	$payId = $_GET["id"];
 	$totalPay = $payId*100;
+	$adid = $_GET['adid'];
 	
 ?>
 
@@ -19,7 +20,8 @@ if(isset($_POST['stripeToken'])){
 		"source"=>$token,
 	));
 
-	echo "payment success";
+	header("Location: ../paymentin.php?adid=$adid&tc=$payId");
+	// echo "payment success";
 	
 }
 ?>
