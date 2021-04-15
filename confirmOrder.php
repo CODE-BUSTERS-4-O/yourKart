@@ -11,6 +11,7 @@
     }
     
     $user = $_SESSION['uid'];
+    $aid = $_GET['adid'];
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +31,10 @@
 </head>
 <body >
     <div class="container">
-    <h1>Shopping Cart</h1>
+    <h1>Order Summery</h1>
 
-<div class="shopping-cart">
+  <div class="shopping-cart">
+  
 
   <div class="column-labels">
     <label class="product-image">Image</label>
@@ -68,20 +70,11 @@
     </div>
     <div class="product-price"><?php echo $product['price']; ?></div>
     <div class="product-quantity">
-    <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
-      <input type="number" name="quantity" value='<?php echo $prodcuctincart['quantity'];?>' min="1">
-      <button class="remove-product" name = "update" value="submit">Update</button>
-    </form>
-    </div>
-    <div class="product-removal">
-      <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
-        <button class="remove-product" name="remove" value="submit">Remove</button>
-      </form>
-      <form action='<?php echo "user/cart/updatecart.php?pid=$prodid"?>' method="POST">
-        <button class="remove-product" name="addtowish" value="submit">Move to wishlist</button>
-      </form>
+    
+      <p> <?php echo $prodcuctincart['quantity'];?>             </p>
       
     </div>
+    
     <div class="product-line-price"><?php echo $totalprice?></div>
   </div>
 
@@ -91,40 +84,54 @@
       $cart = "SELECT * FROM cart WHERE userid = $user;";
       $getcart = mysqli_query($conn,$cart);
       $entry = mysqli_fetch_assoc($getcart);
-
+      $tcost = $entry['totalcost']*100;
       $tax = $entry['totalcost']*0.05;
       $shipping = 15;
   
   ?>
-  <div class="totals">
-    <div class="totals-item">
-        <label>Total items</label>
-        <div class="totals-value" id="cart-subtotal"><?php echo $entry['quantity']?></div>
-      </div>
-      <div class="totals-item">
-        <label>Subtotal</label>
-        <div class="totals-value" id="cart-subtotal"><?php echo $entry['totalcost']?></div>
-      </div>
-      <div class="totals-item">
-        <label>Tax (5%)</label>
-        <div class="totals-value" id="cart-tax"><?php echo $tax;?></div>
-      </div>
-      <div class="totals-item">
-        <label>Shipping</label>
-        <div class="totals-value" id="cart-shipping"><?php echo $shipping;?></div>
-      </div>
-      <div class="totals-item">
-        <label>Discount</label>
-        <div class="totals-value" id="cart-shipping"><?php echo $shipping+$tax;?></div>
-      </div>
-      <div class="totals-item totals-item-total">
-        <label>Grand Total</label>
-        <div class="totals-value" id="cart-total"><?php echo $entry['totalcost']?></div>
-      </div>
-  </div>
-  <button class="checkout"><a href="user/cart/checkout/shippingInfo.php">Proceed to Checkout</a></button>
+        <div class="totals">
+          <div class="totals-item">
+              <label>Total items</label>
+              <div class="totals-value" id="cart-subtotal"><?php echo $entry['quantity']?></div>
+            </div>
+            <div class="totals-item">
+              <label>Subtotal</label>
+              <div class="totals-value" id="cart-subtotal"><?php echo $entry['totalcost']?></div>
+            </div>
+            <div class="totals-item">
+              <label>Tax (5%)</label>
+              <div class="totals-value" id="cart-tax"><?php echo $tax;?></div>
+            </div>
+            <div class="totals-item">
+              <label>Shipping</label>
+              <div class="totals-value" id="cart-shipping"><?php echo $shipping;?></div>
+            </div>
+            <div class="totals-item">
+              <label>Discount</label>
+              <div class="totals-value" id="cart-shipping"><?php echo $shipping+$tax;?></div>
+            </div>
+            <div class="totals-item totals-item-total">
+              <label>Grand Total</label>
+              <div class="totals-value" id="cart-total"><?php echo $entry['totalcost']?></div>
+            </div>
+        </div>
+        <div>
+      <?php
+          
+          $sql = "SELECT * FROM shippinginfo WHERE userid=$user and addressid=$aid";
+          $result = mysqli_query($conn,$sql);
+          $ad = mysqli_fetch_assoc($result);
 
-</div>
+      ?>
+        
+      <?php echo $ad['fname'];?><br>
+      <?php echo $ad['contact'];?><br>
+      <?php echo $ad['address'];?><br>
+      <?php echo $ad['pincode'];?><br>
+  </div>
+        <button class="checkout"><a href='<?php echo "user/cart/stripe_php_payment_gateway/index.php?pid=$tcost"?>'>Pay NOW</a></button>
+
+      </div>
 
     </div>
   

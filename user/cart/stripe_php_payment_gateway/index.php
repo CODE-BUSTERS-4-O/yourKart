@@ -5,18 +5,15 @@
 require('config.php');
 require_once '../../../config.php';
 
-	$payId = $_GET["id"];
 	$userId = $_SESSION["uid"];
+	$totalPay = $_GET['pid'];
+	$payId = $totalPay;
 	
-	$qu = mysqli_query($conn,"SELECT * FROM booked WHERE payId = '$payId'");
-	$r = mysqli_fetch_assoc($qu);
-	$totalPay = $r["totlaFare"] *100;
-	require_once '../config.php';
-	$query = mysqli_query($conn,"SELECT * FROM users WHERE id = '$userId'");
+	$query = mysqli_query($conn,"SELECT * FROM users WHERE userid = '$userId'");
 	$row = mysqli_fetch_assoc($query);
 	$email = $row["email"];
 ?>
-<form action="<?php echo "submit.php?id=$payId"?>" method="post">
+<form action='<?php echo "submit.php?id=$payId";?>' method="post">
 	<script
 		src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		data-key="<?php echo $publishableKey?>"

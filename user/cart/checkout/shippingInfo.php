@@ -32,18 +32,19 @@
           $address = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
           foreach($address as $ad):
-            $adid = $ad['adressid'];
+            $adid = $ad['addressid'];
       ?>
         <li class="cards__item">
           <div class="card">
             <div class="card__content">
               <!-- <div class="card__title">Flex</div> -->
               <p class="card__text">
-                <?php echo $ad['fname'];?>
-                <?php echo $ad['contact'];?>
-                <?php echo $ad['address'];?>
-                <?php echo $ad['pincode'];?>
+                <?php echo $ad['fname'];?><br>
+                <?php echo $ad['contact'];?><br>
+                <?php echo $ad['address'];?><br>
+                <?php echo $ad['pincode'];?><br>
               </p>
+              <button class="btn btn--block card__btn"><a href='<?php echo "../../../confirmorder.php?adid=$adid";?>'>Select</a></button>
               <!-- <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Update</a></button>
               <button class="btn btn--block card__btn"><a href='<?php echo "updateshipping.php?adid=$adid";?>'>Remove</a></button> -->
             </div>
@@ -57,7 +58,7 @@
           <div class="card">
             <!-- <div class="card__image card__image--flowers"></div> -->
             <div class="card__content">
-              <div class="card__title">Flex Basis</div>
+              <div class="card__title"></div>
               <p class="card__text"></p>
               <button class="btn btn--block card__btn"><a href='<?php echo "shippingInfoadd.php";?>'>Add new address</a></button>
             </div>

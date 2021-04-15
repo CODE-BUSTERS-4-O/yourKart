@@ -1,11 +1,8 @@
 <?php
 	session_start();
 	$payId = $_GET["id"];
-
-	require_once '../dbh.inc.php';
-	$query = mysqli_query($conn,"SELECT * FROM booked WHERE payId = '$payId'");
-	$row = mysqli_fetch_assoc($query);
-	$totalPay = $row["totlaFare"] *100;
+	$totalPay = $payId*100;
+	
 ?>
 
 <?php
