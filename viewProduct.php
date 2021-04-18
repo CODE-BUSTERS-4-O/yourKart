@@ -1,8 +1,8 @@
 <?php
 
 
-    include '../../config.php';
-
+    include 'config.php';
+    include 'header.php';
     session_start();
 
     error_reporting(0);
@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/product.css">
+    <link rel="stylesheet" type="text/css" href="user/productPage/styles/product.css">
+    <link rel="stylesheet" type="text/css" href="user/productPage/styles/button.css">
+
     <!-- <script src="js.js" charset="utf-8"></script> -->
     <title>Document</title>
 </head>
@@ -42,27 +44,17 @@
     ?>
 
 <div class="wrapper"> 
-  <div class="nav">
-    <a href="" class="logo"><img src="https://static.mailchimp.com/web/brand-assets/logo-dark.png" alt="logo"></a>
-    
-    <div class="nav-links">
-      <a href="">Store</a>
-      <a href="">Collections</a>
-      <a href="">About</a>
-      <a href="">Contact</a>
-    </div>
-      
-    <a href="" class="cart-icon"><i class="fa fa-shopping-cart"></i></a>
-  </div>
+  
   <?php $image=$product['image'];?>
   <div class="product group">
     <div class="col-1-2 product-image">
-      <div class="bg" style='background-image: url(<?php echo "../../admin/myShop/images/$image";?>);'></div>
+      <div class="bg" style='background-image: url(<?php echo "admin/myShop/images/$image";?>);'></div>
     </div>
     <div class="col-1-2 product-info">
-      <h1><?php echo $product['pname']?></h1>
-      <h2>Rs.<?php echo $product['price']?></h2>
-      
+      <h1 class="name"><?php echo $product['pname']?></h1>
+      <h2 class="price">Rs.<?php echo $product['price']?></h2>
+      <p class="des"><?php echo $product['description']?></p>
+
       <!-- <div class="select-dropdown">
         <select>
           <option value="size">Size</option>
@@ -82,13 +74,12 @@
       </div> -->
       
       <br>
-      
-      <a href='<?php echo "../cart/cart.inc.php?pid=$pid";?>' class="add-btn">Add To Cart</a>
-      <a href='<?php echo "../wishlist/wishlist.inc.php?pid=$pid";?>' class="add-btn">Add To wishlist</a>
-      <a href="" class="add-btn">Buy Now</a>
+      <button class="btn btn-4 btn-4b "><a href='<?php echo "user/cart/cart.inc.php?pid=$pid";?>'>Add To Cart</a></button>
+      <button class="btn btn-4 btn-4b "><a href='<?php echo "user/wishlist/wishlist.inc.php?pid=$pid";?>'>Add To wishlist</a></button>
+      <button class="btn btn-4 btn-4b "><a href="">Buy Now</a></button>
 
       
-      <p><?php echo $product['description']?></p>
+      
       
       <!-- <ul>
         <li>Graph paper 40-page memo book.</li>
@@ -97,17 +88,11 @@
         <li>Red cherry wood covers</li>
       </ul> -->
       
-      <a href="" class="share-link">Tweet</a>
-      <a href="" class="share-link">Like</a>
-      <a href="" class="share-link">Pin</a>
-      <a href="" class="share-link">Email</a>
+    
     </div>
   </div>
   
-  <footer>
-		<img src="C:\xampp\htdocs\xampp\yourKart\admin\myShop\images\606ad4b8297cc9.70521354.jpg">
-		<h3>Built with love by Ayana Campbell - May 24, 2015</h3>
-	</footer>
+ 
   
 </div>
   </body>

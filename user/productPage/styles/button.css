@@ -1,0 +1,106 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+    /*description*/
+	color: #000000;
+    /*bg*/
+	background:#EEEEEE;
+    margin: 0;
+}
+
+/* General button style (reset) */
+.btn {
+	border: 2px solid green;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: #2DD493;
+	cursor: pointer;
+	padding: 15px 40px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+/* Pseudo elements for icons */
+.btn:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Button 4 */
+.btn-4 {
+	border-radius: 50px;
+	border: 3px solid #2DD493;
+	color: rgb(238, 45, 45);
+	overflow: hidden;
+}
+.btn-4 a{
+    color: white;
+}
+
+.btn-4:hover {
+	background: #59CFAF;
+}
+
+.btn-4:before {
+	position: absolute;
+	height: 100%;
+	font-size: 125%;
+	line-height: 3.5;
+	color: rgb(31, 100, 35);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn-4:active:before {
+	color: #e49234;
+}
+
+
+/* Button 4b */
+.btn-4b:before {
+	left: -50%;
+	top: 0;
+}
+
+.btn-4b:hover:before {
+	left: 10%;
+}
+
+
+.name{
+    color: cadetblue;
+    font-size: 50px;
+}
+.price{
+    font-size: 40px;
+}
+.des{
+    font-size: 25px;
+    font:bolder;
+    color: rgba(0, 0, 0, 0.2);
+}

@@ -100,10 +100,10 @@ p{
   height: 100%;
   float: left;
 }
-
+/* 
 .product-image{
-  /*border: 1px dotted #aaa;*/
-}
+  border: 1px dotted #aaa;
+} */
 
 .product-image .bg{
   
@@ -243,34 +243,4 @@ a.add-btn:hover{
 
 .product-info a.share-link:hover{
   border-bottom: 2px solid #aaa;
-}
-
-footer{
-	background-color: #212121;
-	clear: both;
-	width: 100%;
-	padding: 20px 10% 10px 10%;
-	text-align: center;
-	vertical-align: middle;
-}
-
-footer img{
-	display: inline-block;
-	height: 20px;
-	width: auto;
-	margin-bottom: 10px;
-	margin-right: 10px;
-	vertical-align: middle;
-}
-
-footer h3{
-  color: #bbb;
-  font-size: 12px;
-  font-weight: 700;
-	display: inline-block;
-	height: 20px;
-  letter-spacing: .8px;
-	margin-bottom: 0px;
-  text-transform: uppercase;
-	vertical-align: middle;
 }

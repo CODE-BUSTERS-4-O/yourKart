@@ -45,7 +45,7 @@
               </div> -->
               <div class="product-image">
                 <span class="hover-link"></span>
-                <a href='<?php echo "user/productPage/viewProduct.php?pid=$pid";?>' class="product-link">view details</a>
+                <a href='<?php echo "viewProduct.php?pid=$pid";?>' class="product-link">view details</a>
                 <img class="img-responsive" src='<?php echo "admin/myShop/images/$image"?>' alt="">
               </div>
                 <div class="product-description">
