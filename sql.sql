@@ -124,3 +124,10 @@ CREATE TABLE orders(
 
 ALTER TABLE orders
 ADD quantity INT(10);
+
+ALTER TABLE orders
+ADD delieverystatus varchar(10);
+
+ALTER TABLE admin
+ADD_COLUMN shopname VARCHAR(20);
+
