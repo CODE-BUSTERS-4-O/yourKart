@@ -1,5 +1,5 @@
 <?php
-    include '../../config.php';
+    include 'config.php';
     include_once 'header.php';
 
     session_start();
@@ -44,24 +44,25 @@
   </div>
 
   <?php 
-      $sql = "SELECT * FROM products WHERE adminid=$admin";
+      $sql = "SELECT * FROM orders WHERE productid IN(SELECT productid FROM product where adminid=$admin)";
       $result = mysqli_query($conn, $sql);
-      $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+      $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
   ?>
 
-  <?php  foreach($products as $product): 
-        $prodid= $product['productid'];
-        $sql = "SELECT * FROM product where productid=$prodid;";
+  <?php  foreach($orders as $order): 
+        $prodid = $order['productid'];
+        $sql = "SELECT * FROM product WHERE productid=$prodid;";
         $result = mysqli_query($conn, $sql);
         $product = mysqli_fetch_assoc($result);
-// print_r($product);
+        // print_r($product);
         $image=$product['image'];   
         // $prodid = $product['productid'];
-        // $cartproduct = "SELECT * FROM orders WHERE userid = $user AND productid = $prodid;";
-        // $resultprod = mysqli_query($conn,$cartproduct);
-        // $prodcuctincart = mysqli_fetch_assoc($resultprod);
+        $adid = $order['addressid'];
+        $addresssql = "SELECT * FROM shippinginfo WHERE addressid = $adid";
+        $adrun = mysqli_query($conn,$addresssql);
+        $address = mysqli_fetch_assoc($adrun);
         $totalprice = $order['quantity']*$product['price']; 
   ?>
 
@@ -71,7 +72,11 @@
         </div>
         <div class="product-details">
         <div class="product-title"><?php echo $product['pname']; ?></div>
-        <p class="product-description"><?php echo $product['description'];?></p>
+        <p class="product-description"><?php echo $product['description']?></p>
+        <p class="product-description"><?php echo $address['fname']?></p>
+        <p class="product-description"><?php echo $address['contact']?></p>
+        <p class="product-description"><?php echo $address['address']?></p>
+        <p class="product-description"><?php echo $address['pincode']?></p>
         <p class="product-description"><?php echo $order['odate'];?></p>
         </div>
         <div class="product-price"><?php echo $product['price']; ?></div>

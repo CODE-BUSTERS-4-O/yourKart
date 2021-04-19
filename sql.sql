@@ -96,7 +96,7 @@ CREATE TABLE shippinginfo(
     fname VARCHAR(25) NOT NULL,
     contact INT(11) NOT NULL,
     pincode INT(6) NOT NULL,
-   	saddress VARCHAR(100) NOT NULL,
+   	address VARCHAR(100) NOT NULL,
     FOREIGN KEY(userid) REFERENCES users(userid) ON DELETE CASCADE
 );
 
@@ -129,5 +129,5 @@ ALTER TABLE orders
 ADD delieverystatus int(10);
 
 ALTER TABLE admin
-ADD_COLUMN shopname VARCHAR(20);
+ADD shopname VARCHAR(20);
 

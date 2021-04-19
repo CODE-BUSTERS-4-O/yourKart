@@ -28,7 +28,7 @@
         $prodid = $pd['productid'];
         $qu = $pd['quantity'];
         
-        $sql = "INSERT INTO orders(userid,productid,amount,odate,paymentid,addressid,quantity,status) VALUES ('$user','$prodid','$tc','$din','$pid','$adid','$qu',0);";
+        $sql = "INSERT INTO orders(userid,productid,amount,odate,paymentid,addressid,quantity,delieverystatus) VALUES ('$user','$prodid','$tc','$din','$pid','$adid','$qu','0');";
         $in = mysqli_query($conn,$sql);
         if($in){
             $count++;

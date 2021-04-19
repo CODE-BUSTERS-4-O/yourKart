@@ -18,7 +18,7 @@
         $contact = $_POST['contact'];
         $pincode = $_POST['pincode'];
 
-        $sql = "INSERT INTO shippinginfo(userid, fname, contact, pincode, saddress) VALUES ('$user','$name', '$contact', '$pincode', '$address');";
+        $sql = "INSERT INTO shippinginfo(userid, fname, contact, pincode, address) VALUES ('$user','$name', '$contact', '$pincode', '$address');";
 
         if(mysqli_query($conn,$sql)){
             header("Location: shippingInfo.php");
