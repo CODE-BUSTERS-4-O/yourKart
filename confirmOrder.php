@@ -71,7 +71,7 @@
     <div class="product-price"><?php echo $product['price']; ?></div>
     <div class="product-quantity">
     
-      <p> <?php echo $prodcuctincart['quantity'];?>             </p>
+      <p><?php echo $prodcuctincart['quantity'];?></p>
       
     </div>
     

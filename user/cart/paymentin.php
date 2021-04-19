@@ -21,7 +21,7 @@
     $rs = mysqli_query($conn,$sql);
 
     if($rs){
-        $sl = "SELECT * FROM payment WHERE userid=$user AND pdate LIKE '$din';";
+        $sl = "SELECT * FROM payment WHERE userid=$user AND pdate LIKE '$din' ORDER BY paymentid DESC limit 1;";
         $r = mysqli_query($conn,$sl);
         $entry = mysqli_fetch_assoc($r);
         $payid = $entry['paymentid'];

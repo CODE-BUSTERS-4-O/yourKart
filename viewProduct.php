@@ -78,8 +78,14 @@
       <button class="btn btn-4 btn-4b "><a href='<?php echo "user/wishlist/wishlist.inc.php?pid=$pid";?>'>Add To wishlist</a></button>
       <button class="btn btn-4 btn-4b "><a href="">Buy Now</a></button>
 
-      
-      
+      <?php 
+        $adid=$product['adminid'];
+        $sql = "SELECT * FROM admin WHERE adminid=$adid";
+        $result=mysqli_query($conn, $sql);
+        $addetails=mysqli_fetch_assoc($result);
+        $shopname=$addetails['shopname'];
+      ?>
+      <p class="des">Sold By: <?php echo $shopname?></p>
       
       <!-- <ul>
         <li>Graph paper 40-page memo book.</li>
