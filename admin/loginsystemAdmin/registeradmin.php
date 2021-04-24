@@ -17,13 +17,14 @@ if (isset($_POST['submit'])) {
 	$address = $_POST['address'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
+	$shopname = $_POST['shopname'];
 
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM admin WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
 		if (!$result->num_rows > 0) {
-			$sql = "INSERT INTO admin (fullname, email, contact, address, password)
-					VALUES ('$fullname', '$email','$contact', '$address', '$password')";
+			$sql = "INSERT INTO admin (fullname, email, contact, address, password, shopname)
+					VALUES ('$fullname', '$email','$contact', '$address', '$password', '$shopname')";
 			$result = mysqli_query($conn, $sql);
 			if ($result) {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
@@ -31,6 +32,7 @@ if (isset($_POST['submit'])) {
 				$email = "";
 				$contact = "";
 				$address = "";
+				$shopname = "";
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
 			} else {
@@ -65,6 +67,9 @@ if (isset($_POST['submit'])) {
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Register</p>
 			<div class="input-group">
 				<input type="text" placeholder="Full name" name="fullname" value="<?php echo $fullname; ?>" required>
+			</div>
+			<div class="input-group">
+				<input type="text" placeholder="Shop name" name="shopname" value="<?php echo $shopname; ?>" required>
 			</div>
 			<div class="input-group">
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>

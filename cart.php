@@ -98,8 +98,8 @@
   ?>
   <div class="totals">
     <div class="totals-item">
-        <label>Total items</label>
-        <div class="totals-value" id="cart-subtotal"><?php echo $entry['quantity']?></div>
+        <label>Total items     </label>
+        <div class="totals-items" style="margin-left:30px" id="cart-subtotal"><?php echo $entry['quantity']?></div>
       </div>
       <div class="totals-item">
         <label>Subtotal</label>
