@@ -19,12 +19,15 @@
 </head>
 <body>
     <?php 
-    
+    if(isset($_SESSION['aid'])){
+        header("Location: admin/manageShop.php?error=none");
+    }
     if(isset($_SESSION['uid'])){
     ?>
         <button class="btn btn-success" style="float:right; margin-right:10px ; text-color:white"><a href='user/loginsystemUsers/logout.php'>Log Out</a></button>
     <?php 
     }
+    
     else{
     ?>
 
