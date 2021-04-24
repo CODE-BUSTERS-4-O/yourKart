@@ -1,6 +1,5 @@
 <?php
     include 'config.php';
-    include_once 'header.php';
 
     session_start();
 

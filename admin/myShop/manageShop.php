@@ -26,6 +26,7 @@
 <body>
 
 <button class="btn btn-success"><a href='addproduct.php'>Add a product</a></button>
+<button class="btn btn-success"><a href='orderrecieved.php'>Recieved Orders</a></button>
 <button class="btn btn-success" style="float:right; margin-right:10px"><a href='../loginsystemAdmin/logout.php'>Log Out</a></button>
 
 
