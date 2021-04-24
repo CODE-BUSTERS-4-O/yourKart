@@ -18,6 +18,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <?php 
+    
+    if(isset($_SESSION['uid'])){
+    ?>
+        <button class="btn btn-success" style="float:right; margin-right:10px ; text-color:white"><a href='user/loginsystemUsers/logout.php'>Log Out</a></button>
+    <?php 
+    }
+    else{
+    ?>
+
+    <button class="btn btn-success" style="float:right; margin-right:10px ; text-color:white"><a href='user/loginsystemUsers/register.php'>Log In as User   </a></button><br><br><br>
+    <button class="btn btn-success" style="float:right; margin-right:10px ; text-color:white"><a href='admin/loginsystemAdmin/registeradmin.php'>Log In as Admin</a></button>
+
+    <?php 
+    }
+
+
+    ?>
+
     <!-- <a href="admin/loginsystemAdmin/registeradmin.php">admin registration</a>
     <a href="admin/loginsystemAdmin/index.php">admin login</a>
     <a href="user/loginsystemUsers/register.php">user login</a> -->

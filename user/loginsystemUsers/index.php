@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
 		}
 		
 		
-		header("Location: ../home/index.php");
+		header("Location: ../../");
 	} else {
 		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
 	}

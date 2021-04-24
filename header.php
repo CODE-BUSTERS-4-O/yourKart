@@ -28,7 +28,7 @@
             <a href="wishlist.php" class="item -link"><span class="icon"><i class="fa fa-heart"></i></span>Wishlist</a>
             <a href="cart.php" class="item -link"><span class="icon"><i class="fa fa-shopping-cart"></i></span>Cart</a>            
             <a href="#" class="item -link">About us</a>
-            <a href="#" class="item -link"><span class="icon"><i class="fa fa-user"></i></span>Profile</a>
+            <a href="myorder.php" class="item -link"><span class="icon"><i class="fa fa-user"></i></span>My Orders</a>
             <!--  -->
           </nav>
           </button>
