@@ -20,7 +20,7 @@
 <body>
     <?php 
     if(isset($_SESSION['aid'])){
-        header("Location: admin/manageShop.php?error=none");
+        header("Location: admin/myShop/manageShop.php?error=none");
     }
     if(isset($_SESSION['uid'])){
     ?>
