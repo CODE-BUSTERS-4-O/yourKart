@@ -42,6 +42,7 @@
     <?php 
     $lower=0;
     $upper=100000;
+    $cat=0;
     if(isset($_GET['lower'])){
         $lower=$_GET['lower'];
     }
@@ -86,7 +87,7 @@
         <label for="price">Filter By Price:</label>
         <input type="int" placeholder="Minimum Price" value="<?php echo $lower; ?>" id="lower" name="lower" > 
         to       
-        <input type="int" placeholder="Maximum Price" id="upper" value="<?php echo $upper;?>" name="upper" > <br>
+        <input type="int" placeholder="Maximum Price" id="upper" value="<?php echo $upper;?>" name="upper" >
         <br>
         <input type="submit" class="btn btn-success">
     </form>
