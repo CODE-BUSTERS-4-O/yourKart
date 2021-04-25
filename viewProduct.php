@@ -86,7 +86,10 @@
         $shopname=$addetails['shopname'];
       ?>
       <p class="des">Sold By: <?php echo $shopname?></p>
-      
+      <p class="des">Rating: <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span></p>
       <!-- <ul>
         <li>Graph paper 40-page memo book.</li>
         <li>3 book per pack. Banded and shrink-wrapped</li>

@@ -26,6 +26,7 @@ INSERT INTO `category`(`categoryid`, `categoryname`) VALUES ('5', 'beauty');
 INSERT INTO `category`(`categoryid`, `categoryname`) VALUES ('6', 'clothes');
 INSERT INTO `category`(`categoryid`, `categoryname`) VALUES ('7', 'health');
 INSERT INTO `category`(`categoryid`, `categoryname`) VALUES ('8', 'stationaries');
+INSERT INTO `category`(`categoryid`, `categoryname`) VALUES ('9', 'footwear');
 
 create table admincategoryrelation(
     admindid int,

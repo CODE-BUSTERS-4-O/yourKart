@@ -158,9 +158,14 @@
                             <p>XS,S,M,L,XL,XXL</p>
                         </div>
                         <div class="product-color">
-                            <h3>Colors</h3>
+                        
+                        
+                            <h3>Rating</h3>
                             <ul>
-                            <li class="red"></li>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
                             <!-- <li class="blue"></li>
                             <li class="green"></li>
                             <li class="gray"></li>
