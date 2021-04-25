@@ -20,44 +20,44 @@ if (isset($_POST['submit'])) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['uid'] = $row["userid"];
 		$_SESSION['fullname'] = $row['fullname'];
-		$uid = $row['userid'];
-		$sqlcheck = "SELECT * FROM cart WHERE userid = '$uid'";
-		$check = mysqli_query($conn,$sqlcheck);
+		// $uid = $row['userid'];
+		// $sqlcheck = "SELECT * FROM cart WHERE userid = '$uid'";
+		// $check = mysqli_query($conn,$sqlcheck);
 
-		if($check->num_rows <= 0){
-			// $Sql1 = "SELECT * FROM users WHERE email=$email";
-			// $result = mysqli_query($conn, $sql1);
-			// $user = mysqli_fetch_assoc($result);
-			// $uid = $user['userid'];
-			$sql2 = "INSERT INTO cart(userid, quantity, totalcost) VALUES($uid, 0,0)";
-			$result = mysqli_query($conn, $sql2);
-			if($result){
-				echo "<script>alert('done')</script>";
-			}else{
-				echo "<script>alert('not ')</script>";
-			}
+		// if($check->num_rows <= 0){
+		// 	// $Sql1 = "SELECT * FROM users WHERE email=$email";
+		// 	// $result = mysqli_query($conn, $sql1);
+		// 	// $user = mysqli_fetch_assoc($result);
+		// 	// $uid = $user['userid'];
+		// 	$sql2 = "INSERT INTO cart(userid, quantity, totalcost) VALUES($uid, 0,0)";
+		// 	$result = mysqli_query($conn, $sql2);
+		// 	if($result){
+		// 		echo "<script>alert('done')</script>";
+		// 	}else{
+		// 		echo "<script>alert('not ')</script>";
+		// 	}
+
+			// 
+		//}
+
+		// $sqlcheck = "SELECT * FROM wishlist WHERE userid = '$uid'";
+		// $check = mysqli_query($conn,$sqlcheck);
+
+		// if($check->num_rows <= 0){
+		// 	// $Sql1 = "SELECT * FROM users WHERE email=$email";
+		// 	// $result = mysqli_query($conn, $sql1);
+		// 	// $user = mysqli_fetch_assoc($result);
+		// 	// $uid = $user['userid'];
+		// 	$sql2 = "INSERT INTO wishlist(userid, quantity) VALUES($uid, 0)";
+		// 	$result = mysqli_query($conn, $sql2);
+		// 	if($result){
+		// 		echo "<script>alert('done')</script>";
+		// 	}else{
+		// 		echo "<script>alert('not ')</script>";
+		// 	}
 
 			
-		}
-
-		$sqlcheck = "SELECT * FROM wishlist WHERE userid = '$uid'";
-		$check = mysqli_query($conn,$sqlcheck);
-
-		if($check->num_rows <= 0){
-			// $Sql1 = "SELECT * FROM users WHERE email=$email";
-			// $result = mysqli_query($conn, $sql1);
-			// $user = mysqli_fetch_assoc($result);
-			// $uid = $user['userid'];
-			$sql2 = "INSERT INTO wishlist(userid, quantity) VALUES($uid, 0)";
-			$result = mysqli_query($conn, $sql2);
-			if($result){
-				echo "<script>alert('done')</script>";
-			}else{
-				echo "<script>alert('not ')</script>";
-			}
-
-			
-		}
+		// }
 		
 		
 		header("Location: ../../");

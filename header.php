@@ -21,10 +21,10 @@
         <!-- Class `area` is a container -->
         <div class="navbar area">
           <!-- Logo -->
-          <a href="index.php" class="brand" ><img id="image" src="src/logo.png"></a>
+          <a href="index.phpcategory=0&lower=0&upper=0" class="brand" ><img id="image" src="src/logo.png"></a>
           <!-- List of links -->
           <nav role="navigation" id="navigation" class="list">
-            <a href="index.php" class="item -link"><span class="icon"><i class="fa fa-shopping-basket"></i></span>Shop</a>
+            <a href="index.php?category=0&lower=0&upper=0" class="item -link"><span class="icon"><i class="fa fa-shopping-basket"></i></span>Shop</a>
             <a href="wishlist.php" class="item -link"><span class="icon"><i class="fa fa-heart"></i></span>Wishlist</a>
             <a href="cart.php" class="item -link"><span class="icon"><i class="fa fa-shopping-cart"></i></span>Cart</a>            
             <a href="#" class="item -link">About us</a>

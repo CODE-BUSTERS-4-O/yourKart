@@ -36,9 +36,61 @@
 
     <?php 
     }
-
-
     ?>
+
+
+    <?php 
+    $lower=0;
+    $upper=100000;
+    if(isset($_GET['lower'])){
+        $lower=$_GET['lower'];
+    }
+    if(isset($_GET['upper'])){
+        $upper=$_GET['upper'];
+    }
+    ?>
+
+
+    <form action="" METHOD='GET'>
+    <label for="category">Filter By Category:</label>
+      <?php 
+        $cat = $_GET['category'];
+        if($cat==0){
+            $pcat="FILTER";
+        }else{
+            $sql= " SELECT categoryname FROM category WHERE categoryid=$cat"; 
+            $result = mysqli_query($conn, $sql);
+            $rcat = mysqli_fetch_assoc($result); 
+            $pcat=$rcat['categoryname'];
+        } 
+        ?>
+
+        <select class="buton" name ="category">
+            <option class="buton" value= disabled required><?php echo $pcat; ?></option>
+            <?php 
+                $sql = "SELECT * FROM category";
+                $result = mysqli_query($conn, $sql);
+				$categories = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            ?>
+            <?php 
+                foreach($categories as $cat): ?>
+                    <option class="buton" value= "<?php echo $cat['categoryid'];?>"> <?php echo $cat['categoryname'];?></option>
+                <?php endforeach; ?> 
+               
+        </select>
+        <br>
+        <label for="price">Filter By Price:</label>
+        <input type="int" placeholder="Minimum Price" value="<?php echo $lower; ?>" id="lower" name="lower" > 
+        to       
+        <input type="int" placeholder="Maximum Price" id="upper" value="<?php echo $upper;?>" name="upper" > <br>
+        <br>
+        <input type="submit" class="btn btn-success">
+    </form>
+
+    <!-- <form action="index.php?category=<?php echo $cat?>" METHOD='GET'>
+    
+        <input type="submit" value="Submit" class="btn btn-success">   
+    </form> -->
 
     <!-- <a href="admin/loginsystemAdmin/registeradmin.php">admin registration</a>
     <a href="admin/loginsystemAdmin/index.php">admin login</a>
@@ -52,7 +104,24 @@
         <div class="row"> -->
     <?php
         
-        $sql = "SELECT * FROM product";
+    
+        
+        
+        if(isset($_GET['category'])){
+            $cat=$_GET['category'];
+            if($cat==0){
+                    $sql = "SELECT * FROM product WHERE price BETWEEN $lower and $upper";
+            }else{
+                
+                $sql="SELECT * FROM product where categoryid=$cat and  price BETWEEN $lower and $upper";
+            }
+        }else{
+            $sql = "SELECT * FROM product";
+        }
+         
+       
+
+        
         $result = mysqli_query($conn, $sql);
 		$products = mysqli_fetch_all($result, MYSQLI_ASSOC); 
 
