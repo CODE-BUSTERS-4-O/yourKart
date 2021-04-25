@@ -135,4 +135,4 @@ ADD shopname VARCHAR(20);
 CREATE VIEW seller AS SELECT adminid, fullname, shopname, email, contact, address FROM admin;
 CREATE VIEW buyer AS SELECT userid, fullname,  email, contact FROM users;
 CREATE VIEW products AS SELECT productid, pname, price, description FROM product WHERE stock>0;
-SELECT orders.orderid, users.userid, orders.odate FROM orders INNER JOIN users ON orders.userid=users.userid;
+CREATE VIEW order_userwise AS SELECT orders.orderid, users.userid, orders.odate FROM orders INNER JOIN users ON orders.userid=users.userid;
