@@ -67,7 +67,7 @@
 
     <div class="product">
         <div class="product-image">
-        <img src= '<?php echo "admin/myShop/images/$image"; ?>'>
+        <img src= '<?php echo "images/$image"; ?>'>
         </div>
         <div class="product-details">
         <div class="product-title"><?php echo $product['pname']; ?></div>
