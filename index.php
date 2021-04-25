@@ -54,7 +54,11 @@
     <form action="" METHOD='GET'>
     <label for="category">Filter By Category:</label>
       <?php 
-        $cat = $_GET['category'];
+        if(isset($_GET['category'])){
+            $cat = $_GET['category'];
+        }else{
+            $cat=0;
+        }
         if($cat==0){
             $pcat="FILTER";
         }else{
