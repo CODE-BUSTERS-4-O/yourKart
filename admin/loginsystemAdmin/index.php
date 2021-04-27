@@ -62,8 +62,8 @@ if (isset($_POST['submit'])) {
 </body>
 </html>
 <?php
-		if($_GET['log']=1){
-			echo "<script>alert('Woops! You need to sign in first')</script>";
+		// if($_GET['log']=1){
+		// 	echo "<script>alert('Woops! You need to sign in first')</script>";
 
-		}
+		// }
 	?>
